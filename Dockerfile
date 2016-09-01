@@ -4,5 +4,4 @@ MAINTAINER Casey Grzecka <c@sey.gr>
 RUN apt update && apt install -y git 
 # load nvm
 ENV NVM_DIR=/root/.nvm
-RUN . $HOME/.nvm/nvm.sh
-RUN nvm install 0.12
+RUN . $HOME/.nvm/nvm.sh && nvm install 0.12
