@@ -3,5 +3,6 @@ MAINTAINER Casey Grzecka <c@sey.gr>
 
 RUN apt update && apt install -y git 
 
-RUN nvm install 0.12
-
+# load nvm
+RUN export NVM_DIR="$HOME/.nvm"
+# RUN nvm install 0.12
