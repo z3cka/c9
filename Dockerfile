@@ -13,5 +13,10 @@ RUN git clone git://github.com/c9/core.git /c9 && \
 RUN mkdir /workspace
 WORKDIR /workspace
 ARG c9port=80
+ARG user=c9
+ARG pass=rules
 ENV c9port $c9port
-CMD /root/.nvm/versions/node/v4.5.0/bin/node /c9/server.js -p $c9port -a : --listen 0.0.0.0 -w /workspace
+ENV user $user
+ENV pass $pass
+EXPOSE 80
+CMD /root/.nvm/versions/node/v4.5.0/bin/node /c9/server.js -p $c9port -a $user:$pass --listen 0.0.0.0 -w /workspace
