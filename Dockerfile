@@ -12,5 +12,6 @@ RUN git clone git://github.com/c9/core.git /c9 && \
 
 RUN mkdir /workspace
 WORKDIR /workspace
-
-CMD /root/.nvm/versions/node/v4.5.0/bin/node /c9/server.js -p 8080 -a : --listen 0.0.0.0 -w /workspace
+ARG c9port=80
+ENV c9port $c9port
+CMD /root/.nvm/versions/node/v4.5.0/bin/node /c9/server.js -p $c9port -a : --listen 0.0.0.0 -w /workspace
