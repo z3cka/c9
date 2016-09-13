@@ -1,8 +1,6 @@
 # c9
 c9 in a docker container running node 4.5.0 via nvm on debian
 
-Find image on [Docker Hub](https://hub.docker.com/r/z3cka/c9/)
-
 ## Usage
 * `docker run -d -p :80 z3cka/c9`  
 * Find external port on host via `docker ps`:   
@@ -16,18 +14,18 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Features
 ### Custom C9 Port
-* at runtime like:
+* at **runtime** like:
   `docker run -d --env c9port=8181 -p :8181 z3cka/c9`
-* at buildtime like:
+* at **buildtime** like:
   #### example
   * build it: `docker build --build-arg c9port=8282 .`  
     > `...Successfully built 891d895beadf`
   * `docker run -d -p :8282 891d895beadf`
 
 ### Custom Authentication
-* at runtime like:  
+* at **runtime** like:  
   `docker run -d -e user=foo -e pass=bar -p :80 z3cka/c9`
-* at buildtime like:
+* at **buildtime** like:
   `docker build --build-arg user=foo --build-arg pass=bar .`
 
 ## Docker Hub
