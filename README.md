@@ -28,5 +28,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 * at **buildtime** like:
   `docker build --build-arg user=foo --build-arg pass=bar .`
 
+### Custom Workspace
+* at **runtime** like:  
+  `docker run -d -e workspace="/baz" -p :80 z3cka/c9`
+* at **buildtime** like:
+  `docker build --build-arg workspace="/baz" .`
+
+
 ## Docker Hub
 https://hub.docker.com/r/z3cka/c9
