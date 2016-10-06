@@ -7,7 +7,7 @@ RUN apt update && apt install -y build-essential gcc git make python2.7
 ENV NVM_DIR=/root/.nvm
 RUN . /root/.nvm/nvm.sh && nvm install 4.5.0
 
-RUN git clone git://github.com/c9/core.git /c9 && \
+RUN git clone https://github.com/c9/core.git /c9 && \
     cd /c9 && \
     scripts/install-sdk.sh
 
