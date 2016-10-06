@@ -1,3 +1,4 @@
+# c9
 FROM z3cka/debianvm:latest
 MAINTAINER Casey Grzecka <c@sey.gr>
 
@@ -9,6 +10,20 @@ RUN . /root/.nvm/nvm.sh && nvm install 4.5.0
 RUN git clone git://github.com/c9/core.git /c9 && \
     cd /c9 && \
     scripts/install-sdk.sh
+
+# use bash during build
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+# install some extra dev goodies like
+# * apache support for older versions of php in apache via phpbrew
+# * pip for installing CodeIntel in c9
+RUN apt install -y apache2-dev apt python-setuptools
+RUN easy_install pip
+RUN pip install -U pip
+RUN pip install -U virtualenv && \
+    virtualenv --python=python2 $HOME/.c9/python2 && \
+    source $HOME/.c9/python2/bin/activate
+RUN apt update && apt install -y python-dev
+RUN mkdir /tmp/codeintel && pip install --download /tmp/codeintel codeintel==0.9.3
 
 RUN mkdir /workspace
 
