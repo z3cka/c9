@@ -7,8 +7,10 @@ RUN apt update && apt install -y build-essential gcc git make python2.7
 ENV NVM_DIR=/root/.nvm
 RUN . /root/.nvm/nvm.sh && nvm install --lts
 
-RUN git clone https://github.com/c9/core.git /c9 && \
+# get c9 and checkout temp fix for missing plugin
+RUN git clone https://github.com/z3cka/core.git /c9 && \
     cd /c9 && \
+    git checkout -b collab-refspec remotes/origin/collab-refspec && \
     scripts/install-sdk.sh
 
 # use bash during build
