@@ -41,4 +41,4 @@ ENV workspace $workspace
 
 EXPOSE 80
 
-CMD /root/.nvm/versions/node/v4.5.0/bin/node /c9/server.js -p $c9port -a $user:$pass --listen 0.0.0.0 -w $workspace
+CMD /root/.nvm/versions/node/v4.6.0/bin/node /c9/server.js -p $c9port -a $user:$pass --listen 0.0.0.0 -w $workspace
