@@ -5,7 +5,7 @@ MAINTAINER Casey Grzecka <c@sey.gr>
 RUN apt update && apt install -y build-essential gcc git make python2.7
 # load nvm & desired node version
 ENV NVM_DIR=/root/.nvm
-RUN . /root/.nvm/nvm.sh && nvm install --lts && nvm use stable
+RUN . /root/.nvm/nvm.sh && nvm install v4.6.0 && nvm use stable
 
 # get c9 and checkout temp fix for missing plugin
 RUN git clone https://github.com/z3cka/core.git /c9 && \
