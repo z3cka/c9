@@ -26,6 +26,11 @@ RUN pip install -U virtualenv && \
 RUN apt update && apt install -y python-dev
 RUN mkdir /tmp/codeintel && pip install --download /tmp/codeintel codeintel==0.9.3
 
+# add hub 
+RUN git clone https://github.com/github/hub.git && \
+    cd hub && \
+    script/build -o /usr/local/bin/hub
+
 RUN mkdir /workspace
 
 ARG c9port=80
