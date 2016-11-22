@@ -26,10 +26,11 @@ RUN pip install -U virtualenv && \
 RUN apt update && apt install -y python-dev
 RUN mkdir /tmp/codeintel && pip install --download /tmp/codeintel codeintel==0.9.3
 
-# add hub 
-RUN git clone https://github.com/github/hub.git && \
-    cd hub && \
-    script/build -o /usr/local/bin/hub
+# add hub 2.2.9
+RUN cd /opt && \
+    wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz && \
+    tar -zxvf hub-linux-amd64-2.2.9.tgz && \
+    ln -s /opt/hub-linux-amd64-2.2.9/bin/hub /usr/local/bin/hub
 
 RUN mkdir /workspace
 
