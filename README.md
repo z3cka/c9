@@ -1,5 +1,5 @@
 # c9
-c9 in a docker container running node 4.6.0 via nvm on debian
+c9 in a docker container running node v8.9.0 via nvm on debian
 
 ## Usage
 * `docker run -d -p :80 z3cka/c9`  
