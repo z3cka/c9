@@ -1,5 +1,5 @@
 # c9
-FROM z3cka/debianvm:latest
+FROM z3cka/debianvm:jessie
 MAINTAINER Casey Grzecka <c@sey.gr>
 
 RUN apt update && apt install -y build-essential gcc git make python2.7
