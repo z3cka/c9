@@ -34,6 +34,10 @@ RUN cd /opt && \
 
 RUN mkdir /workspace
 
+# fix missing shared object
+RUN ln -s /lib/libc.musl-x86_64.so.1 /usr/lib/libc.musl-x86_64.so.1 && \
+    ln -s /lib/libz.so.1 /usr/lib/libz.so.1
+
 ARG c9port=80
 ARG user=c9
 ARG pass=rules
